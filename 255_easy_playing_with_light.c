@@ -84,8 +84,8 @@ int main()
 
 			// Invert all bites between longs_min and longs_max
 			if (longs_max - longs_min > 1) {
-				for (i = longs_min + 1; i < longs_max; i++);
-					//*(data+i) = *(data+i) ^ mask;
+				for (i = longs_min + 1; i < longs_max; i++)
+					*(data+i) = *(data+i) ^ mask;
 					
 					//// Debug output
 					//if (debug)
@@ -102,8 +102,6 @@ int main()
 		}
 
 	}
-
-	printf("done...%lu\n", tmp);
 
 	// Done, calc 1-bits in all numbers
 	res = 0;
