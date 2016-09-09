@@ -1,5 +1,11 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+
+/* See challenge discussion:
+ * https://www.reddit.com/r/dailyprogrammer/comments/pkw2m/2112012_challenge_3_easy/
+ */
 
 void usage(char *program_name);
 void caesar_cipher_encode(char *in, char *out);
@@ -10,7 +16,7 @@ int main(int argc, char **argv)
 	// Init
 	int flg_encode = 0;
 	int flg_decode = 0;
-	char res[256];
+	char *res;
 	int c;
 
 	// Parse arguments
@@ -35,6 +41,7 @@ int main(int argc, char **argv)
 	}
 
 	// Done
+	res = (char*) malloc(strlen(argv[optind]) + 1);
 
 	if (flg_encode) {
 		caesar_cipher_encode(argv[optind], res);
